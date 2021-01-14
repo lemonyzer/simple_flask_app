@@ -1,11 +1,17 @@
-from flask import Flask, escape, request
-
+from flask import Flask, escape, request, render_template
 app = Flask(__name__)
 
+
 @app.route("/")
-def hello():
-    name = request.args.get("name", "World")
-    return f"Hello, {escape(name)}!"
+@app.route("/home")
+def home():
+    return "<h1>Home</h1>"
+
+
+@app.route("/about")
+def about():
+    return "<h1>About</h1>"
+
 
 if __name__ == "__main__":
     app.run(debug=True)
